@@ -1,8 +1,8 @@
 #!/bin/bash
-curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12
-apt-get update && apt-get install -y python3.12 python3.12-venv
-python3.12 -m venv .venv
-source .venv/bin/activate
 pip install --upgrade pip
-pip install -r requirements.txt
+pip install Django==4.2.7
+pip install psycopg2-binary==2.9.9
+pip install gunicorn==21.2.0
+pip install whitenoise==6.6.0
+pip install django-environ==0.11.2
 python manage.py collectstatic --noinput
