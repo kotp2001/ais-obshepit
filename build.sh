@@ -1,14 +1,4 @@
 #!/bin/bash
 pip install --upgrade pip
 pip install -r requirements.txt
-python manage.py migrate --noinput
-python -c "
-import django
-django.setup()
-from django.contrib.auth import get_user_model
-User = get_user_model()
-if not User.objects.filter(username='admin').exists():
-    User.objects.create_superuser('admin', 'admin@example.com', 'admin123')
-    print('Admin created')
-"
-python manage.py collectstatic --noinput
+python init_db.py
